@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Theme Toggle -->
     <div class="theme-toggle">
         <label class="switch">
             <input type="checkbox" id="themeToggle">
@@ -17,7 +16,6 @@
         <span id="themeLabel">Dark Mode</span>
     </div>
 
-    <!-- Hero Section -->
     <header class="hero">
         <nav class="navbar">
             <div class="nav-brand">VN</div>
@@ -34,10 +32,9 @@
         </div>
     </header>
 
-    <!-- Featured Work Grid -->
     <section class="work-grid" id="work">
         <div class="project-card">
-            <img src="https://via.placeholder.com/400x300" alt="AI Project" class="project-image">
+            <img src="/api/placeholder/400/300" alt="AI Project" class="project-image">
             <div class="project-info">
                 <h3>AI Revolution</h3>
                 <p>Machine Learning Platform</p>
@@ -45,17 +42,15 @@
             </div>
         </div>
         <div class="project-card">
-            <img src="https://via.placeholder.com/400x300" alt="Quantum Computing" class="project-image">
+            <img src="/api/placeholder/400/300" alt="Quantum Computing" class="project-image">
             <div class="project-info">
                 <h3>Quantum Leap</h3>
                 <p>Next-Gen Computing</p>
                 <a href="#" class="project-link">Case Study →</a>
             </div>
         </div>
-        <!-- Add more project cards as needed -->
     </section>
 
-    <!-- About Section -->
     <section class="about-section" id="about">
         <div class="about-content">
             <h2>Visionary Collective</h2>
@@ -73,11 +68,10 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="contact-content">
             <h2>Start a Project</h2>
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm">
                 <input type="text" placeholder="Name" required>
                 <input type="email" placeholder="Email" required>
                 <textarea placeholder="Tell us about your project" rows="5" required></textarea>
@@ -91,6 +85,7 @@
         </div>
     </section>
 
+    <button id="backToTop" class="back-to-top">↑</button>
     <script src="script.js"></script>
 </body>
 </html>

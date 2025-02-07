@@ -1,98 +1,82 @@
-// Add Intersection Observer for scroll animations
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+document.addEventListener('DOMContentLoaded', () => {
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggle.checked = true;
+        themeLabel.textContent = 'Light Mode';
+    }
+
+    themeToggle.addEventListener('change', () => {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        themeLabel.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    });
+
+    // Scroll Animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.project-card, .stat-item').forEach((el) => {
+        observer.observe(el);
+    });
+
+    // Sticky Navigation
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        const navbar = document.querySelector('.navbar');
+        
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            navbar.style.transform = 'translateY(-100%)';
+        } else {
+            navbar.style.transform = 'translateY(0)';
+        }
+        lastScroll = currentScroll;
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTop.style.display = 'block';
+        } else {
+            backToTop.style.display = 'none';
         }
     });
-}, { threshold: 0.1 });
 
-document.querySelectorAll('.project-card, .stat-item').forEach((el) => {
-    observer.observe(el);
-});
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-// Sticky Navigation
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    const navbar = document.querySelector('.navbar');
-    
-    if (currentScroll > lastScroll && currentScroll > 100) {
-        navbar.style.transform = 'translateY(-100%)';
-    } else {
-        navbar.style.transform = 'translateY(0)';
-    }
-    lastScroll = currentScroll;
-});
-
-// Theme Toggle Functionality
-const themeToggle = document.getElementById('themeToggle');
-const themeLabel = document.getElementById('themeLabel');
-const body = document.body;
-
-// Check local storage for theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    body.classList.add('dark-mode');
-    themeToggle.checked = true;
-    themeLabel.textContent = 'Light Mode';
-}
-
-themeToggle.addEventListener('change', () => {
-    if (themeToggle.checked) {
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-        themeLabel.textContent = 'Light Mode';
-    } else {
-        body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-        themeLabel.textContent = 'Dark Mode';
-    }
-});
-
-// Back to top button
-window.onscroll = function() {
-    scrollFunction();
-};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("backToTop").style.display = "block";
-    } else {
-        document.getElementById("backToTop").style.display = "none";
-    }
-}
-
-document.getElementById("backToTop").addEventListener("click", function() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-});
-
-// Form submission
-document.getElementById("subscribeForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    alert("Thanks for subscribing!");
-    this.reset();
-});
-
-// Smooth scroll for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    // Form Submission
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        // Add form submission logic here
+        alert('Thank you for your message! We will get back to you soon.');
+        e.target.reset();
     });
-});
 
-// Add hover effect to blog posts
-document.querySelectorAll('.blog-post').forEach(post => {
-    post.addEventListener('mouseover', () => {
-        post.style.transform = 'translateY(-5px)';
-        post.style.transition = 'transform 0.3s ease';
-    });
-    
-    post.addEventListener('mouseout', () => {
-        post.style.transform = 'translateY(0)';
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
