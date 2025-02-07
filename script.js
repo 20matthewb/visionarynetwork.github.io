@@ -1,3 +1,30 @@
+// Add Intersection Observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.project-card, .stat-item').forEach((el) => {
+    observer.observe(el);
+});
+
+// Sticky Navigation
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    const navbar = document.querySelector('.navbar');
+    
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        navbar.style.transform = 'translateY(-100%)';
+    } else {
+        navbar.style.transform = 'translateY(0)';
+    }
+    lastScroll = currentScroll;
+});
+
 // Theme Toggle Functionality
 const themeToggle = document.getElementById('themeToggle');
 const themeLabel = document.getElementById('themeLabel');

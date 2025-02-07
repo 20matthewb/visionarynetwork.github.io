@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisionaryNetwork - Future Tech Blog</title>
+    <title>VisionaryNetwork | Future-Focused Creatives</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Dark/Light Mode Toggle -->
+    <!-- Theme Toggle -->
     <div class="theme-toggle">
         <label class="switch">
             <input type="checkbox" id="themeToggle">
@@ -16,62 +17,79 @@
         <span id="themeLabel">Dark Mode</span>
     </div>
 
-    <header class="header">
-        <h1>VisionaryNetwork</h1>
-        <p>Exploring Tomorrow's Technology Today</p>
+    <!-- Hero Section -->
+    <header class="hero">
+        <nav class="navbar">
+            <div class="nav-brand">VN</div>
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1 class="hero-title">Shaping Digital Futures</h1>
+            <p class="hero-subtitle">Where Innovation Meets Execution</p>
+            <a href="#work" class="cta-button">View Our Work →</a>
+        </div>
     </header>
 
-    <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <div class="search-container">
-            <input type="text" placeholder="Search...">
-        </div>
-    </nav>
-
-    <div class="container">
-        <main class="main-content">
-            <article class="blog-post">
-                <h2></h2>
-                <div class="post-meta">Posted on | Category: </div>
-                <p></p>
-                <a href="#" class="read-more">Read More</a>
-            </article>
-        </main>
-
-        <aside class="sidebar">
-            <div class="sidebar-widget">
-                <h3>Categories</h3>
-                <ul>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Innovation</a></li>
-                    <li><a href="#">Future Trends</a></li>
-                    <li><a href="#">Startups</a></li>
-                </ul>
+    <!-- Featured Work Grid -->
+    <section class="work-grid" id="work">
+        <div class="project-card">
+            <img src="https://via.placeholder.com/400x300" alt="AI Project" class="project-image">
+            <div class="project-info">
+                <h3>AI Revolution</h3>
+                <p>Machine Learning Platform</p>
+                <a href="#" class="project-link">Case Study →</a>
             </div>
-
-            <div class="sidebar-widget">
-                <h3>Subscribe</h3>
-                <form id="subscribeForm">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </aside>
-    </div>
-
-    <footer class="footer">
-        <div class="contact-info">
-            <h3>Contact Us</h3>
-            <p>Email: <a href="mailto:info@visionarynetwork.com">info@visionarynetwork.com</a></p>
-            <p>Phone: +1 (123) 456-7890</p>
-            <p>Address: 123 Future Street, Tech City</p>
         </div>
-        <p>&copy; 2023 VisionaryNetwork. All rights reserved.</p>
-    </footer>
+        <div class="project-card">
+            <img src="https://via.placeholder.com/400x300" alt="Quantum Computing" class="project-image">
+            <div class="project-info">
+                <h3>Quantum Leap</h3>
+                <p>Next-Gen Computing</p>
+                <a href="#" class="project-link">Case Study →</a>
+            </div>
+        </div>
+        <!-- Add more project cards as needed -->
+    </section>
 
-    <button id="backToTop" title="Go to top">↑</button>
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2>Visionary Collective</h2>
+            <p class="about-text">We're a multidisciplinary team of futurists, designers, and engineers pushing the boundaries of digital innovation.</p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-content">
+            <h2>Start a Project</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Tell us about your project" rows="5" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+            </div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
