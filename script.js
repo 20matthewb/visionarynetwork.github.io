@@ -1,3 +1,28 @@
+// Theme Toggle Functionality
+const themeToggle = document.getElementById('themeToggle');
+const themeLabel = document.getElementById('themeLabel');
+const body = document.body;
+
+// Check local storage for theme preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeToggle.checked = true;
+    themeLabel.textContent = 'Light Mode';
+}
+
+themeToggle.addEventListener('change', () => {
+    if (themeToggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+        themeLabel.textContent = 'Light Mode';
+    } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+        themeLabel.textContent = 'Dark Mode';
+    }
+});
+
 // Back to top button
 window.onscroll = function() {
     scrollFunction();
